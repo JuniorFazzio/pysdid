@@ -1,0 +1,30 @@
+# Dependency directories
+node_modules/
+venv/
+*.pyc
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.swp
+
+# OS generated files
+.DS_Store
+thumbs.db
+
+# Build/temporary files
+/build
+/dist
+*.log
+
+# Sensitive information (use with caution)
+.env
+secret_key.txt
+
+# Exception to a pattern
+*.txt
+!important.txt # don't ignore this specific file
+
+# Py Chache
+syndid/__pycache__/
+*.pyc

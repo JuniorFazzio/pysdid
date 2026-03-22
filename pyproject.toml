@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysdid"
+version = "0.1.0"
+authors = [
+  { name="Ademir Jose Fazzio Junior" },
+]
+description = "Um estimador robusto de Synthetic Difference-in-Differences usando otimização convexa."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+# Aqui você lista todas as bibliotecas que o seu código precisa para rodar!
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "cvxpy>=1.2.0",
+    "matplotlib>=3.3.0",
+    "pandas>=2.3.0"
+]
