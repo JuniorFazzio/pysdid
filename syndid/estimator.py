@@ -226,8 +226,8 @@ class SyntheticDID:
             self.p_value_ = 2 * (1 - st.norm.cdf(np.abs(z_stat)))
 
             # 3. Calcula os limites inferior e superior
-            self.upper_limit = self.att_ - (z_score * self.se_)
-            self.lower_limit = self.att_ + (z_score * self.se_)
+            self.lower_limit = self.att_ - (z_score * self.se_)
+            self.upper_limit = self.att_ + (z_score * self.se_)
 
         else:
             # Calculo do intervalo de confiança através do método Jackknive
