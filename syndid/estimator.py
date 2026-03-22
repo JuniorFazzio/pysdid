@@ -379,9 +379,11 @@ class SyntheticDID:
 
         if self.Ntreated > 1:  # Considerando casos de multiplos tratados
             Y_tr_full = Y_tr_full.mean(axis=1).flatten()
+            Y_tr_post_trends = self.Y_post_tr.mean(axis=1).flatten()
 
         else:
             Y_tr_full = Y_tr_full.flatten()
+            Y_tr_post_trends = self.Y_post_tr.flatten()
 
         # 2. Aplicar os pesos Ômega aos controles para criar o "Sintético"
         # Lembre-se que solve_weights retorna [pesos..., viés]. Isolamos só os pesos.
@@ -425,14 +427,14 @@ class SyntheticDID:
                          linewidth=3, label=label_nome, alpha=0.45)
 
             # Retas no período PÓS-Tratamento (Aqui você vê o distanciamento/ATT)
-            plot_reta(times_post, self.Y_post_tr.flatten()-self.omega_weights_[1], 'black',
+            plot_reta(times_post, Y_tr_post_trends-self.omega_weights_[1], 'black',
                       '-.', 'Trends Post (Treated)')
             plot_reta(times_post, Y_synthetic[T_pre:].flatten(), 'blue',
                       '-.', 'Trends Post (Counterfactual)')
 
             # Preencher a diferença entre as tendências retas no PÓS (O ATT visual)
             z_tr = np.poly1d(np.polyfit(
-                times_post, self.Y_post_tr.flatten() - self.omega_weights_[1], 1))
+                times_post, Y_tr_post_trends - self.omega_weights_[1], 1))
             z_sy = np.poly1d(np.polyfit(
                 times_post, Y_synthetic[T_pre:].flatten(), 1))
             plt.fill_between(times_post, z_tr(times_post), z_sy(
