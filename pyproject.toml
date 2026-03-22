@@ -16,11 +16,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-# Aqui você lista todas as bibliotecas que o seu código precisa para rodar!
 dependencies = [
     "numpy>=1.20.0",
     "scipy>=1.7.0",
     "cvxpy>=1.2.0",
     "matplotlib>=3.3.0",
-    "pandas>=2.3.0"
+    "pandas>=2.0.0"
 ]
