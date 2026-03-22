@@ -221,6 +221,10 @@ class SyntheticDID:
             # Extrai o Z-score exato do Scipy para nível de confiança
             z_score = st.norm.ppf(1 - self.confidence / 2)
 
+            # Calcula P valor
+            z_stat = self.att_ / self.se_
+            self.p_value_ = 2 * (1 - st.norm.cdf(np.abs(z_stat)))
+
             # 3. Calcula os limites inferior e superior
             self.upper_limit = self.att_ - (z_score * self.se_)
             self.lower_limit = self.att_ + (z_score * self.se_)
